@@ -13,61 +13,62 @@
 ##
 ## ---------------------------
 
-## set working directory for Mac and PC
-
 library(dplyr)
 library(tidyverse)
 library(ggmap)
 
-Districts_raw <- read_csv("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-data-sets/main/Districts.csv")
-Addresses_raw <- read_csv("https://raw.githubusercontent.com/Cook-County-Department-of-Public-Health/ccdph-data-sets/main/Healthcare%20Facility%20Addresses.csv")
+# This method is good when 
+# https://www2.census.gov/geo/tiger/TIGER2020/ADDRFEAT/
 
-Addresses <- Addresses_raw %>% 
-  select(Facility=facility, Address=street, City=city, Zip=zip) %>% 
-  mutate(FullAddress = paste(Address, " ", City,", IL ",Zip, sep=""))
+# Download data with addresses
+# Here are two examples of very large datasets with addresses that are, by the
+# way, already geocoded
+# Cook County Medical Examiner data and Chicago 311 requests
+cc_medicalexaminercases <- 
+  read.csv(file="https://datacatalog.cookcountyil.gov/api/views/cjeq-bs86/rows.csv?accessType=DOWNLOAD")
+requestsChicago311 <- 
+  read.csv(file="https://data.cityofchicago.org/api/views/v6vf-nfxy/rows.csv?accessType=DOWNLOAD&bom=true&format=true")
 
-Addresses$FullAddressFormatted <- str_to_lower(Addresses$FullAddress)
-Addresses <- Addresses %>% mutate(FullAddressFormatted = trimws(FullAddressFormatted))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "#"," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " apt* "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " ste* "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " unit* "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " trlr "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " lot "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "\\s\\d*\\s"," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "\\s[:alpha:][:digit:]\\s", " "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "\\s\\d\\s", " "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "\\s[:digit:][:alpha:]\\s", " "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = trimws(FullAddressFormatted))
-
-register_google(key="AIzaSyCrN9Rd0lIz5I55yPdrDtGY4943dyKGm2s")
-getOption("ggmap")
-addresses = Addresses$FullAddressFormatted
-length(addresses) # check number of addresses
-locations <- geocode(addresses, key="AIzaSyCrN9Rd0lIz5I55yPdrDtGY4943dyKGm2s")
-locations <- cbind(Addresses,locations)
-
-# CC MedicalExaminer data
-cc_medicalexaminercases <- read.csv("https://datacatalog.cookcountyil.gov/api/views/cjeq-bs86/rows.csv?accessType=DOWNLOAD")
-
-Addresses <- cc_medicalexaminercases %>% 
+# example geocoding medical examiner data 
+addresses_full <- cc_medicalexaminercases %>% 
   drop_na(c(Incident.Address, Incident.City, Incident.Zip.Code, longitude, latitude)) %>%
   filter(Incident.Address!="UNK", Incident.Address!="", Incident.City!="", Incident.Zip.Code!="") %>%
-  select(case=Case.Number, Address=Incident.Address, City=Incident.City, Zip=Incident.Zip.Code, cc_x = longitude, cc_y=latitude) %>% 
-  mutate(FullAddress = paste(Address, " ", City,", IL ",Zip, sep=""))
+  select(case=Case.Number, street=Incident.Address, city=Incident.City, zip=Incident.Zip.Code, state="IL", cc_x = longitude, cc_y=latitude)
 
-Addresses$FullAddressFormatted <- str_to_lower(Addresses$FullAddress)
-Addresses <- Addresses %>% mutate(FullAddressFormatted = trimws(FullAddressFormatted))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "#"," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " apt* "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " ste* "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " unit* "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " trlr "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, " lot "," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "\\s\\d*\\s"," "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "\\s[:alpha:][:digit:]\\s", " "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "\\s\\d\\s", " "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = str_replace(FullAddressFormatted, "\\s[:digit:][:alpha:]\\s", " "))
-Addresses <- Addresses %>% mutate(FullAddressFormatted = trimws(FullAddressFormatted))
+addresses_full_formatted <- key %>%
+  mutate(zip5 = case_when(nchar(trimws(zip))==5 ~ trimws(zip),
+                          nchar(trimws(zip))==6 ~ trimws(str_replace(zip,"-","")),
+                          nchar(trimws(zip))==10 ~ substr(trimws(zip),1,5)),
+         FullAddress = paste0(street," ",city,", ",state," ",zip5),
+         FullAddressFormatted = trimws(FullAddress) ,
+         FullAddressFormatted = str_to_upper(FullAddressFormatted) ,
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, "\\.",""),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, "/"," at "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, "#",""),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " BLDG "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " RM "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " ATTN "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " APT "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " FL "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " STE "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " UNIT "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " TRLR "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, " LOT "," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, "\\s\\d+\\s"," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, "\\s[[:alpha:]]+[[:digit:]]+\\s", " "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, "\\s[[:digit:]]+[[:alpha:]]+\\s", " "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, "\\s\\d+\\s"," "),
+         FullAddressFormatted = str_replace_all(FullAddressFormatted, "\\s+"," "),
+         FullAddressFormatted = trimws(FullAddressFormatted) )
 
-write.csv(Addresses, "C:/Users/scott/OneDrive - DePaul University/PROJECTS/COVID/GIS/Layers/Geocode/cc_medicalexamineraddresses.csv")
+# request a Google API key via the following URL
+# https://developers.google.com/maps/documentation/embed/get-api-key
+register_google(key="enter your Google API key")
+getOption("ggmap")
+addresses = addresses_full$FullAddressFormatted
+length(addresses) # check number of addresses
+locations <- geocode(addresses, key="enter your Google API key")
+locations <- cbind(addresses_full_formatted,locations)
+
+write.csv(addresses_full_formatted, "layers/geocodedfile.csv")
+

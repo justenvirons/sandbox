@@ -20,18 +20,16 @@ library(dplyr)
 library(ineq)
 library(lctools)
 library(fuzzyjoin)
-
-
-
+library(sqldf)
 
 arc.check_product()
 arc.check_portal()
-arc.portal_connect("https://cookcountyil.maps.arcgis.com")
-example_data <- arc.open("https://services2.arcgis.com/I5Or36sMcO7Y9vQ3/arcgis/rest/services/ccdph_counties/FeatureServer/0")
+arc.portal_connect("https://depaul-edu.maps.arcgis.com")
+example_data <- arc.open("https://services7.arcgis.com/8kZv9DESIQ1hYuyJ/arcgis/rest/services/COVID_19_cases_deaths_and_hospitalizations_and_related_demographic_data/FeatureServer/0")
 example_data # data summary
 example_data@shapeinfo # geometry, projection info only 
 example_data@extent # bounding box
-example_data.dataframe <- arc.select(object = example_data, fields = c("FID", "COUNTYFP", "SHAPE", "ALAND"))
+example_data.dataframe <- arc.select(object = example_data)
 class(example_data.dataframe) 
 
 # Load income data for dissemination areas, and join by the csd geo_code the boundary data frame:
