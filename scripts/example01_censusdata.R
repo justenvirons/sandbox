@@ -67,11 +67,10 @@ acs_groups_tables$year<-ayear # add year variable
 assign(paste("grouptable_","year",sep=""),acs_groups_tables) # change name of dataframe
 
 # Variables for ACS data table
-# B01001: SEX BY AGE
 ayear <- "2019"
-agroup <- "B01001"
+agroup <- "S0101"
 acs_groups_vars <- listCensusMetadata(
-  name = "acs/acs5",
+  name = "acs/acs5/subject",
   vintage = ayear,
   group = agroup,
   type = "variables")
