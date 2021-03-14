@@ -61,14 +61,18 @@ addresses_full_formatted <- key %>%
          FullAddressFormatted = str_replace_all(FullAddressFormatted, "\\s+"," "),
          FullAddressFormatted = trimws(FullAddressFormatted) )
 
+
+
 # request a Google API key via the following URL
 # https://developers.google.com/maps/documentation/embed/get-api-key
-register_google(key="enter your Google API key")
+register_google(key="AIzaSyCrN9Rd0lIz5I55yPdrDtGY4943dyKGm2s")
 getOption("ggmap")
+addresses_full <- masterlist %>%
+  mutate(FullAddressFormatted = toupper(paste0(street," ",city,", IL ",zip)))
 addresses = addresses_full$FullAddressFormatted
 length(addresses) # check number of addresses
-locations <- geocode(addresses, key="enter your Google API key")
+locations <- geocode(addresses, key="AIzaSyCrN9Rd0lIz5I55yPdrDtGY4943dyKGm2s")
 locations <- cbind(addresses_full_formatted,locations)
+masterlist <- cbind(masterlist,locations)
 
-write.csv(addresses_full_formatted, "layers/geocodedfile.csv")
-
+write_csv(masterlist,paste0(aPathName, "provider_masterlist_geo.csv"))

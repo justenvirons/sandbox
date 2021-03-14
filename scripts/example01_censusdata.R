@@ -75,7 +75,10 @@ acs_groups_vars <- listCensusMetadata(
   group = agroup,
   type = "variables")
 acs_groups_vars$year<-ayear
-acs_groups_vars <- acs_groups_vars %>% filter(!str_detect(name,"EA"),!str_detect(name,"M"))
+acs_groups_vars <- acs_groups_vars %>% filter(!str_detect(name,"EA"),!str_detect(name,"M")) %>% 
+  mutate(label = str_replace_all(label, "Estimate!!",""),
+         label = str_replace(label, "!!"," "),
+         label = str_replace_all(label, "!!"," "))
 assign(paste("groupvars_",agroup,"_",ayear, sep=""),acs_groups_vars)
 rm(acs_groups_vars)
 
