@@ -24,13 +24,21 @@ library(sqldf)
 
 arc.check_product()
 arc.check_portal()
+
+
 arc.portal_connect("https://depaul-edu.maps.arcgis.com")
-example_data <- arc.open("https://services7.arcgis.com/8kZv9DESIQ1hYuyJ/arcgis/rest/services/COVID_19_cases_deaths_and_hospitalizations_and_related_demographic_data/FeatureServer/0")
+example_data <- arc.open("https://gis12.cookcountyil.gov/arcgis/rest/services/politicalBoundary/MapServer/1")
 example_data # data summary
 example_data@shapeinfo # geometry, projection info only 
 example_data@extent # bounding box
 example_data.dataframe <- arc.select(object = example_data)
-class(example_data.dataframe) 
+example_data.dataframe_sf <- arc.data2sf(example_data.dataframe)
+
+# Transformed datasets
+CC_CommissionerDistricts_geom <- st_transform(example_data.dataframe_sf, crs = 26916)
+
+masterlist_address_geom <- st_transform(masterlist_address_geo,crs = 26916)
+
 
 # Load income data for dissemination areas, and join by the csd geo_code the boundary data frame:
 

@@ -78,23 +78,20 @@ B01001_2019_sub <- B01001_2019 %>%
   Pop55to64 = sum(c_across(B01001_017E:B01001_019E),c_across(B01001_041E:B01001_043E)),
   Pop65to74 = sum(c_across(B01001_020E:B01001_022E),c_across(B01001_044E:B01001_046E)),
   Pop75to84 = sum(c_across(B01001_023E:B01001_024E),c_across(B01001_047E:B01001_048E)),
-  Pop85Over = sum(B01001_025E,B01001_049E),
-  Pop30to64 = sum(Pop30to44:Pop55to64),
-  Pop65Over = sum(Pop65to74:Pop85Over)) %>%
+  Pop85Over = sum(c_across(B01001_025E+B01001_049E)),
+  Pop30to64 = sum(c_across(Pop30to44:Pop55to64)),
+  Pop65Over = sum(c_across(Pop65to74:Pop85Over))) %>%
   select(GEOID,Total:Pop65Over)
-
 
 B03002_2019_sub <- B03002_2019 %>% 
   rowwise() %>%
   mutate(POPBLK = B03002_004E,
   POPASN = B03002_006E,
   POPLAT = B03002_012E,
-  POPCLR = B03002_001E-B03002_003E,
   POPWHT = B03002_003E,
   PCTBLK = B03002_004E/B03002_001E*100,
   PCTASN = B03002_006E/B03002_001E*100,
   PCTLAT = B03002_012E/B03002_001E*100,
-  PCTCLR = (B03002_001E-B03002_003E)/B03002_001E*100,
   PCTWHT = B03002_003E/B03002_001E*100) %>%
   select(POPBLK:PCTWHT)
   
@@ -105,4 +102,11 @@ B17001_2019_sub <- B17001_2019 %>%
     PCTBPOV = B17001_002E/B17001_001E*100) %>%
     select(POPBPOVTOT:PCTBPOV)
 
-BaselineData_2019 <- B01001_2019_sub %>% bind_cols(B03002_2019_sub,B17001_2019_sub) %>% left_join(IL_Places_geom, by="GEOID") %>% filter(NAME=='Maywood') %>% mutate()
+BaselineData_2019 <- B01001_2019_sub %>% bind_cols(B03002_2019_sub,B17001_2019_sub)
+BaselineData_2019_geom <- IL_Places_geom %>%
+  left_join(BaselineData_2019, by="GEOID") %>%
+  filter(NAME=='Maywood') %>%
+  mutate(SQMI=ALAND*0.00000038610,
+         POPDENS=Total/SQMI,
+         PCT65OVER = Pop65Over/Total*100)
+plot(BaselineData_2019_geom['GEOID'])

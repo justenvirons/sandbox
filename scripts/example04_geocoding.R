@@ -61,8 +61,6 @@ addresses_full_formatted <- key %>%
          FullAddressFormatted = str_replace_all(FullAddressFormatted, "\\s+"," "),
          FullAddressFormatted = trimws(FullAddressFormatted) )
 
-
-
 # request a Google API key via the following URL
 # https://developers.google.com/maps/documentation/embed/get-api-key
 register_google(key="AIzaSyCrN9Rd0lIz5I55yPdrDtGY4943dyKGm2s")
