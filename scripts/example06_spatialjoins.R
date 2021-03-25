@@ -1,10 +1,10 @@
 ## ---------------------------
 ##
-## Script name: Initial geocode of provider addresses
+## Script name: example06_spatialjoins.R
 ## Purpose of script:
 ## Author: C. Scott Smith, PhD AICP
 ## Date Created: 2021-03-16
-## Date Last Updated: 2021-03-16
+## Date Last Updated: 2021-03-25
 ## Email: christopher.smith@cookcountyhealth.org
 ## ---------------------------
 ##
@@ -23,6 +23,10 @@ library(sf)
 arc.check_product()
 arc.check_portal()
 arc.portal_connect("https://cookcountyil.maps.arcgis.com/")
+
+CC_targetcommunities_arc <- arc.open("https://services2.arcgis.com/I5Or36sMcO7Y9vQ3/arcgis/rest/services/CCDPH_Target_Community/FeatureServer/0")
+CC_targetcommunities_df <- arc.select(object = CC_CCVI_arc)
+CC_targetcommunities_geom <- arc.data2sf(CC_CCVI_df)
 
 CC_CCVI_arc <- arc.open("https://services2.arcgis.com/I5Or36sMcO7Y9vQ3/arcgis/rest/services/CCVI_By_Muni/FeatureServer/0")
 CC_CCVI_df <- arc.select(object = CC_CCVI_arc)
