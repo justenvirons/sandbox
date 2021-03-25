@@ -138,8 +138,6 @@ for (ayear in yearlist) {
   detach(census_table)
 }
 
-
-
 # Note that table names are identical across geometries
 # Summarize age categories for census tract tables
 

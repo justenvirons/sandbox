@@ -25,9 +25,10 @@ library(sqldf)
 arc.check_product()
 arc.check_portal()
 
-
 arc.portal_connect("https://depaul-edu.maps.arcgis.com")
 example_data <- arc.open("https://gis12.cookcountyil.gov/arcgis/rest/services/politicalBoundary/MapServer/1")
+example_data <- arc.open("https://services2.arcgis.com/I5Or36sMcO7Y9vQ3/arcgis/rest/services/CCDPH_Target_Community/FeatureServer/0")
+
 example_data # data summary
 example_data@shapeinfo # geometry, projection info only 
 example_data@extent # bounding box

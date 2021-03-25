@@ -19,19 +19,6 @@ library(tidyverse)
 library(ggmap)
 library(sf)
 
-masterlist_address <- masterlist %>% 
-  mutate(FullAddress = paste(toupper(street), " ", toupper(city),", IL ",zip, sep=""))
-
-register_google(key="AIzaSyCrN9Rd0lIz5I55yPdrDtGY4943dyKGm2s")
-getOption("ggmap")
-addresses = masterlist_address$FullAddress
-length(addresses) # check number of addresses
-locations <- geocode(addresses, key="AIzaSyCrN9Rd0lIz5I55yPdrDtGY4943dyKGm2s")
-masterlist_address_geo <- masterlist_address %>% bind_cols(locations)
-masterlist_address_geo <- masterlist_address_geo %>% 
-  sf::st_as_sf(coords = c("lon","lat")) %>% 
-  sf::st_set_crs(4326)
-
 # Check to ensure that connection is open
 arc.check_product()
 arc.check_portal()
