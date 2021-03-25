@@ -40,10 +40,16 @@ CookCounty_Tracts_geom <- CookCounty_Tracts_geom %>% select(GEOID_tract = GEOID)
 IL_Places_geom <- IL_Places_geom %>% select(GEOID_place=GEOID,NAME_place=NAME) %>% mutate(AREA_place = st_area(geometry))
 CookCounty_TractsByPlace_geom_int <- st_intersection(CookCounty_Tracts_geom,IL_Places_geom)
 CookCounty_TractsByPlace_geom <- CookCounty_TractsByPlace_geom_int %>% mutate(AREA_int = st_area(geometry), AREA_pct = AREA_int/AREA_tract)
+
 CookCounty_TractsByPlace_geom_wgs <- st_transform(CookCounty_TractsByPlace_geom, crs = 4326)
 CookCounty_TractsByPlace_geom_wgs <- st_cast(CookCounty_TractsByPlace_geom_wgs$geometry,"POLYGON")
 
 plot(CookCounty_TractsByPlace_geom_wgs['GEOID_place'])
+
+# Use censusapi package to retrieve attribute data from the different datasets
+# Use below to list all census apis available
+apis <- listCensusApis()
+View(apis)
 
 # Download complete list of ACS 5-year subject tables
 ayear <- "2019"
@@ -68,9 +74,9 @@ assign(paste("grouptable_","year",sep=""),acs_groups_tables) # change name of da
 
 # Variables for ACS data table
 ayear <- "2019"
-agroup <- "S0101"
+agroup <- "B01001"
 acs_groups_vars <- listCensusMetadata(
-  name = "acs/acs5/subject",
+  name = "acs/acs5",
   vintage = ayear,
   group = agroup,
   type = "variables")
@@ -110,6 +116,30 @@ for (agroup in grouplist) {
   }
 }
 
+# List of ACS variables to be downloaded across tables
+varlist <- c("B01001_001E", "B03002_001E")
+tablename <- "totalpopulation"
+
+# Download data for places
+yearlist <- c(2019)
+for (ayear in yearlist) {
+  census_table <- getCensus(name = "acs/acs5",
+                         vintage = ayear,
+                         vars = c("NAME",varlist),
+                         region = "place:*", # tracts
+                         regionin="state:17", # places, counties, not msas
+                         key="8f6a0a83c8a2466e3e018a966846c86412d0bb6e")
+  attach(census_table)
+  census_table <- census_table %>% 
+    mutate(year = ayear,
+           GEOID = paste0(state,place))
+  assign(paste(tablename,ayear,sep="_"),census_table)
+  rm(census_table)
+  detach(census_table)
+}
+
+
+
 # Note that table names are identical across geometries
 # Summarize age categories for census tract tables
 
@@ -132,9 +162,9 @@ anum <- 0
 
 for (agroup in grouplist) {
   rm(table_int_att_app_sum)
-#   # generalize intersection table name
-#   # remove unnecessary fields from tract attribute table
-#   # join tract attributes with intersected tract geometries by shared GEOID id
+  #   # generalize intersection table name
+  #   # remove unnecessary fields from tract attribute table
+  #   # join tract attributes with intersected tract geometries by shared GEOID id
   table_int <- CookCounty_TractsByPlace_geom
   table_att <- agroup
   table_int_att <- left_join(table_int,table_att, by=c("GEOID_tract"="GEOID_tract"))
