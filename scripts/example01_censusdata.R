@@ -23,15 +23,37 @@ library(leaflet)
 library(scales)
 library(ggmap)
 
+library(tidyverse)
+library(dplyr) 
+library(sf) 
+library(clipr)
+library(readxl)
+library(lubridate)
+library(data.table)
+library(stringr)
+library(sp)
+library(ggmap)
+library(arcgisbinding)
+library(RCurl)
+library(gtools)
+
 # Download  census tract geographies
 # cb = cartographic boundary
 # Project both to UTM North Zone 16
-IL_Tracts_geom <- tracts("IL", cb=TRUE, class="sf")
+IL_Tracts_geom <- tracts("IL", cb=TRUE, class="sf", year="2010")
 IL_Places_geom <- places("IL", cb=TRUE, class="sf")
 IL_Counties_geom <- counties("IL", cb=TRUE, class="sf")
 IL_Tracts_geom <- st_transform(IL_Tracts_geom, crs = 26916)
 IL_Places_geom <- st_transform(IL_Places_geom, crs = 26916)
 IL_Counties_geom <- st_transform(IL_Counties_geom, crs = 26916)
+
+IL_MCDs_geom <- county_subdivisions("IL", cb=TRUE, class="sf")
+st_write(IL_MCDs_geom, "C:/temp/IL_MCDs_geom.shp") 
+st_write(IL_Places_geom, "C:/temp/il_places.shp")
+
+rm(IL_Tracts_geom)
+
+IL_Tracts_geom_cc <- IL_Tracts_geom %>% filter(COUNTYFP=="031")
 
 # Filter out only Cook County census tracts
 # Intersect the place and tract geometries and create a areal weight field, AREA_pct
@@ -74,7 +96,7 @@ assign(paste("grouptable_","year",sep=""),acs_groups_tables) # change name of da
 
 # Variables for ACS data table
 ayear <- "2019"
-agroup <- "B01001"
+agroup <- "B17001"
 acs_groups_vars <- listCensusMetadata(
   name = "acs/acs5",
   vintage = ayear,
@@ -88,11 +110,14 @@ acs_groups_vars <- acs_groups_vars %>% filter(!str_detect(name,"EA"),!str_detect
 assign(paste("groupvars_",agroup,"_",ayear, sep=""),acs_groups_vars)
 rm(acs_groups_vars)
 
+write_clip(groupvars_B28001_2019)
+write_csv(groupvars_B28001_2019,"C:/Users/scott/Desktop/delete/groupvars_B28001_2019.csv")
+
 # List of ACS tables to be downloaded
-grouplist <- c("B01001")
+grouplist <- c("B01001", "B01002","B03002")
 
 # Download places
-yearlist <- c(2019)
+yearlist <- c(2010)
 for (agroup in grouplist) {
   for (ayear in yearlist) {
     agroupname = paste("group(",agroup,")",sep="")
@@ -117,8 +142,60 @@ for (agroup in grouplist) {
 }
 
 # List of ACS variables to be downloaded across tables
-varlist <- c("B01001_001E", "B03002_001E")
-tablename <- "totalpopulation"
+varlist <- c("B01001_001E", "B17001_001E","B17001_002E","B03002_001E", "B03002_003E", "B03002_004E", "B03002_006E", "B03002_012E")
+
+"B01002"
+tablename <- "demos_by_tract"
+
+B01002
+
+# Download data for places
+yearlist <- c(2010:2019)
+for (ayear in yearlist) {
+  census_table <- getCensus(name = "acs/acs5",
+                            vintage = ayear,
+                            vars = c("NAME",varlist),
+                            region = "tract:*", # tracts
+                            regionin="state:17+county:031", # places, counties, not msas
+                            key="8f6a0a83c8a2466e3e018a966846c86412d0bb6e")
+  attach(census_table)
+  census_table <- census_table %>% 
+    mutate(year = ayear,
+           GEOID = paste0(state,county, tract))
+  assign(paste(tablename,ayear,sep="_"),census_table)
+  rm(census_table)
+  detach(census_table)
+}
+
+alist_demos <- mget(ls(pattern = "demos_by"))
+alist_demos_df <- rbindlist(alist_demos)
+
+write_rds(alist_demos_df, "C:/Users/scott/OneDrive - CCDPH/OneDrive - Cook County Health/git_repos/justenvirons/ccdph-jurisdictions/data/census_demos.rds")
+
+# List of ACS variables to be downloaded across tables
+varlist <- c("S1903_C01_001E")
+
+census_table <- getCensus(name = "acs/acs5/subject",
+                          vintage = "2019",
+                          vars = c("NAME",varlist),
+                          region = "tract:*", # tracts
+                          regionin="state:17", # places, counties, not msas
+                          key="72ccddf726eca9848b307e3ee67e892d63c97bca")
+
+
+census_table_vars <- listCensusMetadata(name = "acs/acs5/subject",
+                          vintage = "2019",
+                          group = "S1903",
+                          type = "variables")
+
+
+ayear <- "2019"
+agroup <- "B01002"
+acs_groups_vars <- listCensusMetadata(
+  name = "acs/acs5",
+  vintage = ayear,
+  group = agroup,
+  type = "variables")
 
 # Download data for places
 yearlist <- c(2019)
@@ -126,7 +203,7 @@ for (ayear in yearlist) {
   census_table <- getCensus(name = "acs/acs5",
                          vintage = ayear,
                          vars = c("NAME",varlist),
-                         region = "place:*", # tracts
+                         region = "tract:*", # tracts
                          regionin="state:17", # places, counties, not msas
                          key="8f6a0a83c8a2466e3e018a966846c86412d0bb6e")
   attach(census_table)
@@ -141,7 +218,7 @@ for (ayear in yearlist) {
 # Note that table names are identical across geometries
 # Summarize age categories for census tract tables
 
-B01001_place_2019 <- B01001_place_2019 %>% rowwise() %>% mutate(
+B01001_place_2010_sub <- B01001_place_2010 %>% rowwise() %>% mutate(
   Total = sum(B01001_001E),
   PopUnd5 = sum(B01001_003E,B01001_027E),
   Pop5to17 = sum(c_across(B01001_004E:B01001_006E),c_across(B01001_028E:B01001_030E)),
@@ -151,8 +228,22 @@ B01001_place_2019 <- B01001_place_2019 %>% rowwise() %>% mutate(
   Pop55to64 = sum(c_across(B01001_017E:B01001_019E),c_across(B01001_041E:B01001_043E)),
   Pop65to74 = sum(c_across(B01001_020E:B01001_022E),c_across(B01001_044E:B01001_046E)),
   Pop75to84 = sum(c_across(B01001_023E:B01001_024E),c_across(B01001_047E:B01001_048E)),
-  Pop85Over = sum(B01001_025E,B01001_049E),
-)
+  Pop85Over = sum(B01001_025E,B01001_049E)
+) %>%
+  select(place,Total:Pop85Over)
+
+B03002_place_2010_sub <- B03002_place_2010 %>%
+  arrange(place) %>%
+  rowwise() %>%
+  mutate(TotalRace = B03002_001E,
+         PopBlk = B03002_004E,
+         PopAsn = B03002_006E,
+         PopLat = B03002_012E,
+         PopClr = B03002_001E-B03002_003E,
+         PopWht = B03002_003E) %>%
+  select(place, TotalRace:PopWht) %>%
+  mutate_at(vars(PopBlk:PopWht), .funs = (list(pct = ~(./TotalRace*100))))
+
 
 # Areal weight census tracts
 grouplist <- list(B01001_tract_2019_sub,B01001A_tract_2019_sub,B01001B_tract_2019_sub,B01001D_tract_2019_sub,B01001H_tract_2019_sub,B01001I_tract_2019_sub)

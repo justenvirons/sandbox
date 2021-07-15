@@ -22,11 +22,18 @@ library(lctools)
 library(fuzzyjoin)
 library(sqldf)
 
+library(arcgisbinding)
 arc.check_product()
 arc.check_portal()
 
+# Zip Code Boundaries 
+CC_ZipCodes_arc <- arc.open("https://gis12.cookcountyil.gov/arcgis/rest/services/addressZipCode/MapServer/1")
+CC_ZipCodes_df <- arc.select(object = CC_ZipCodes_arc)
+CC_ZipCodes_sf <- arc.data2sf(CC_ZipCodes_df)
+
+
+arc.portal_connect("https://cookcountyil.maps.arcgis.com")
 arc.portal_connect("https://depaul-edu.maps.arcgis.com")
-example_data <- arc.open("https://gis12.cookcountyil.gov/arcgis/rest/services/politicalBoundary/MapServer/1")
 example_data <- arc.open("https://services2.arcgis.com/I5Or36sMcO7Y9vQ3/arcgis/rest/services/CCDPH_Target_Community/FeatureServer/0")
 
 example_data # data summary
@@ -36,6 +43,15 @@ example_data.dataframe <- arc.select(object = example_data)
 example_data.dataframe_sf <- arc.data2sf(example_data.dataframe)
 
 # Transformed datasets
+
+# Zip Code Boundaries 
+CC_ZipCodes_arc <- arc.open("https://gis12.cookcountyil.gov/arcgis/rest/services/addressZipCode/MapServer/1")
+CC_ZipCodes_df <- arc.select(object = CC_ZipCodes_arc)
+CC_ZipCodes_sf <- arc.data2sf(CC_ZipCodes_df)
+
+
+
+zip_codes 
 CC_CommissionerDistricts_geom <- st_transform(example_data.dataframe_sf, crs = 26916)
 
 masterlist_address_geom <- st_transform(masterlist_address_geo,crs = 26916)
