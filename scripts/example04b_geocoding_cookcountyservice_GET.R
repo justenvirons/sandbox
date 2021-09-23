@@ -1,10 +1,9 @@
 ## ---------------------------
 ##
-## Script name: Geocoding in R vs ArcGIS
-## Purpose of script:
+## Script name: Geocoding in R using Cook County ArcGIS Rest API (GET request Method)
 ## Author: C. Scott Smith, PhD AICP
-## Date Created: 2021-03-05
-## Date Last Updated: 
+## Date Created: 2021-09-17
+## Date Last Updated: 2021-09-23
 ## Email: christopher.smith@cookcountyhealth.org
 ## ---------------------------
 ##
@@ -13,9 +12,11 @@
 ##
 ## ---------------------------
 
+# required packages 
 library(dplyr)
 library(tidyverse)
 library(jsonlite)
+library(urltools)
 
 # Background information concerning ArcGIS REST API geocoding services
 # https://developers.arcgis.com/rest/geocode/api-reference/geocoding-geocode-addresses.htm
@@ -28,42 +29,10 @@ library(jsonlite)
 cc_medicalexaminercases <- 
   read.csv(file="https://datacatalog.cookcountyil.gov/api/views/cjeq-bs86/rows.csv?accessType=DOWNLOAD")
 
-# street-zone geocoding ---------------------------------------------------
-
-# format medical examiner data
-# street, zone format
-addresses_full <- cc_medicalexaminercases %>% 
-  select(Incident.Address, 
-         Incident.Zip.Code,
-         OBJECTID) %>%
-  drop_na(c(Incident.Address,
-            Incident.Zip.Code)) %>%
-  filter(Incident.Address!="UNK",
-         Incident.Address!="unknown",
-         Incident.Address!="", 
-         Incident.Zip.Code!="") %>%
-  mutate(Incident.Address = toupper(gsub("[^[:alnum:]]", " ",Incident.Address)),
-         Incident.Address = gsub("\\s+"," ",Incident.Address)) %>%
-  sample_n(25) %>%
-  rename(STREET=Incident.Address, 
-         ZONE=Incident.Zip.Code) 
-
-# create input json
-addresses_json <- jsonlite::toJSON(list(records=addresses_full),flatten = T)
-addresses_text <- addresses_json %>% 
-  str_replace_all('\\{\\"STREET\\"', '\\{\\"attributes\\":\\{\"STREET\\"') %>% 
-  str_replace_all('\\},\\{\\"attributes\\"','\\}\\},\\{\\"attributes\\"') %>%
-  str_replace_all('\\}\\]\\}','\\}\\}\\]\\}')
-
-addresses_urlencoded <- url_encode(addresses_text)
-geocoder_service <- "https://gisinternal.cookcountyil.gov/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer/geocodeAddresses?addresses="
-geocoder_options <- "&f=pjson"
-geocoder_call <- paste0(geocoder_service, addresses_urlencoded, geocoder_options)
-
-returned_result <- fromJSON(file(geocoder_call)) %>% .$locations
-
 # single line address geocoding ---------------------------------------------------
 # format medical examiner data
+# limited to 14 or so addresses with GET request
+
 addresses_full <- cc_medicalexaminercases %>% 
   select(Incident.Address,
          Incident.City,
@@ -83,7 +52,7 @@ addresses_full <- cc_medicalexaminercases %>%
   select(OBJECTID, SingleLine)
 
 # create input json
-addresses_json <- jsonlite::toJSON(list(records=addresses_full),flatten = T)
+addresses_json <- jsonlite::toJSON(list(records=addresses_full),flatten = TRUE) # use pretty=TRUE to view structured json format
 addresses_text <- addresses_json %>% 
   str_replace_all('\\{\\"OBJECTID\\"', '\\{\\"attributes\\":\\{\"OBJECTID\\"') %>% 
   str_replace_all('\\},\\{\\"attributes\\"','\\}\\},\\{\\"attributes\\"') %>%
@@ -94,21 +63,6 @@ addresses_urlencoded <- url_encode(addresses_text)
 geocoder_service <- "https://gisinternal.cookcountyil.gov/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer/geocodeAddresses?addresses="
 geocoder_options <- "&SingleLine=&f=pjson" #pjson, kmz or html
 geocoder_call <- paste0(geocoder_service, addresses_urlencoded, geocoder_options)
-
-# POST request
-# https://gisinternal.cookcountyil.gov/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer/geocodeAddresses
-
-geocoder_service <- "https://gisinternal.cookcountyil.gov/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer/geocodeAddresses?&SingleLine=&f=pjson"
-
-addresses_json_rev <- rjson::fromJSON(addresses_text)
-addresses_json_rev <- jsonlite::toJSON(addresses_json_rev, flatten=TRUE, auto_unbox = TRUE)
-test_result <- httr::POST(url = geocoder_service,
-           body =  jsonlite::toJSON(addresses_json_rev, flatten=TRUE, auto_unbox = TRUE),
-           httr::content_type_json(),
-           verbose())
-
-http_type(test_result)
-test_content <- fromJSON(test_result)
 
 returned_result <- fromJSON(file(geocoder_call), flatten = TRUE) %>% 
   .$locations %>% 
