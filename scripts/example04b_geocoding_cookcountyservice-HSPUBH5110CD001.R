@@ -14,9 +14,7 @@
 ## ---------------------------
 
 library(dplyr)
-library(rjson)
 library(tidyverse)
-library(ggmap)
 library(tidyjson)
 
 # This method is good when 
@@ -85,7 +83,7 @@ masterlist <- cbind(masterlist,locations)
 # format addresses in dataframe
 cc_medicalexaminercases <- 
   read.csv(file="https://datacatalog.cookcountyil.gov/api/views/cjeq-bs86/rows.csv?accessType=DOWNLOAD")
-# 
+
 # addresses_full <- cc_medicalexaminercases %>% 
 #   tibble() %>%
 #   select(Case.Number,
@@ -106,20 +104,35 @@ cc_medicalexaminercases <-
 
 addresses_full <- cc_medicalexaminercases %>% 
   tibble() %>%
-  select(Case.Number,
-         Incident.Address, 
+  select(Incident.Address, 
          Incident.Zip.Code,
          OBJECTID) %>%
   drop_na(c(Incident.Address,
             Incident.Zip.Code)) %>%
-  filter(Incident.Address!="UNK", 
+  filter(Incident.Address!="UNK",
+         Incident.Address!="unknown",
          Incident.Address!="", 
          Incident.Zip.Code!="") %>%
+  mutate(Incident.Address = toupper(str_replace_all(Incident.Address,"\\,",""))) %>%
   sample_n(10) %>%
-  rename(CASENO=Case.Number, 
-         STREET=Incident.Address, 
-         ZONE=Incident.Zip.Code)
+  rename(STREET=Incident.Address, 
+         ZONE=Incident.Zip.Code) 
 
-addresses_full_json <- toJSON(addresses_full_list)
+addresses_full_json <- jsonlite::toJSON(list(records=addresses_full),flatten = T)
+addresses_full_text <- addresses_full_json %>% 
+  str_replace_all('\\{\\"STREET\\"', '\\{\\"attributes\\":\\{\"STREET\\"') %>% 
+  str_replace_all('\\},\\{\\"attributes\\"','\\}\\},\\{\\"attributes\\"') %>%
+  str_replace_all('\\}\\]\\}','\\}\\}\\]\\}')
 
-print(addresses_full_json)
+geocodeurl <- URLencode(paste0("https://gisinternal.cookcountyil.gov/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer/geocodeAddresses?addresses=",
+                               addresses_full_text,
+                               "&category=&sourceCountry=&matchOutOfRange=true&langCode=&locationType=&searchExtent=&outSR=&f=pjson"))
+
+write_clip(URLencode(addresses_full_text))
+
+
+
+
+
+cat(addresses_full_json)
+addresses_full_text <- jsonlite::fromJSON(addresses_full_json, simplifyDataFrame = TRUE)

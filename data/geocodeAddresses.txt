@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+<title>Geocode Addresses: (AddressLocator/CookAddressComposite)</title>
+<link href="/secure/rest/static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<table width="100%" class="userTable">
+<tr>
+<td class="titlecell">
+ArcGIS REST Services Directory
+</td>
+<td align="right">
+<a href="https://gisinternal.cookcountyil.gov/secure/login?returnUrl=https://gisinternal.cookcountyil.gov/secure/rest/services">Login</a>
+</td>
+</tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="/secure/rest/services">Home</a>
+&gt; <a href="/secure/rest/services">services</a>
+&gt; <a href="/secure/rest/services/AddressLocator">AddressLocator</a>
+&gt; <a href="/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer">CookAddressComposite (GeocodeServer)</a>
+&gt; <a href="/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer/geocodeAddresses"><i>geocodeAddresses</i></a>
+</td>
+<td align="right">
+<a href="https://gisinternal.cookcountyil.gov/secure/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="https://gisinternal.cookcountyil.gov/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer/geocodeAddresses?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table><h2>Geocode Addresses: (AddressLocator/CookAddressComposite)</h2>
+<div class="rbody">
+<div style="color:#ff6666"> </div><form name="sdform" action="/secure/rest/services/AddressLocator/CookAddressComposite/GeocodeServer/geocodeAddresses">
+<table class="formTable">
+<tr valign="top">
+<td><label for="addresses">Addresses:</label></td>
+<td><textarea id="addresses" name="addresses" rows="20" cols="50"></textarea></td>
+</tr>
+<tr valign="top">
+<td><label for="category">Category:</label></td>
+<td><input type="text" id="category" name="category" value="" size="75" /></td>
+</tr>
+<tr valign="top">
+<td><label for="sourceCountry">Source Country:</label></td>
+<td><input type="text" id="sourceCountry" name="sourceCountry" value="" size="75" /></td>
+</tr>
+<tr valign="top">
+<td>Match out of range:</td>
+<td>
+<label><input type="radio" name="matchOutOfRange" value="true" checked="true" /> True &nbsp;&nbsp;</label>
+<label><input type="radio" name="matchOutOfRange" value="false" /> False</label>
+</td>
+</tr>
+<tr valign="top">
+<td><label for="langCode">Language Code:</label></td>
+<td><input type="text" id="langCode" name="langCode" value="" /></td>
+</tr>
+<tr valign="top">
+<td><label for="locationType">Location Type:</label></td>
+<td><input type="text" id="locationType" name="locationType" value="" /></td>
+</tr>
+<tr valign="top">
+<td><label for="searchExtent">Search Extent:</label></td>
+<td><input type="text" id="searchExtent" name="searchExtent" value="" size="75" /></td>
+</tr>
+<tr valign="top">
+<td><label for="outSR">Output Spatial Reference:</label></td>
+<td><input type="text" id="outSR" name="outSR" value="" size="75" /></td>
+</tr>
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+<option value="kmz">KMZ</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Geocode Addresses (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Geocode Addresses (POST)" />
+</td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+document.forms.sdform.addresses.focus();
+</script>
+</div>
+<br/><br/>
+</body>
+</html>

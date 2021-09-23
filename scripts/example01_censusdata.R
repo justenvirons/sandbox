@@ -40,6 +40,9 @@ library(gtools)
 # Download  census tract geographies
 # cb = cartographic boundary
 # Project both to UTM North Zone 16
+
+IL_BlockGroups_geom <- block_groups("IL", cb=TRUE, class="sf", year="2019") %>% filter(COUNTYFP=="031")
+
 IL_Tracts_geom <- tracts("IL", cb=TRUE, class="sf", year="2010")
 IL_Places_geom <- places("IL", cb=TRUE, class="sf")
 IL_Counties_geom <- counties("IL", cb=TRUE, class="sf")
@@ -95,15 +98,16 @@ acs_groups_tables$year<-ayear # add year variable
 assign(paste("grouptable_","year",sep=""),acs_groups_tables) # change name of dataframe
 
 # Variables for ACS data table
-ayear <- "2019"
-agroup <- "B17001"
+ayear <- "2010"
+agroup <- "B01001"
 acs_groups_vars <- listCensusMetadata(
-  name = "acs/acs5",
+  name = "dec/sf1",
   vintage = ayear,
   group = agroup,
   type = "variables")
 acs_groups_vars$year<-ayear
-acs_groups_vars <- acs_groups_vars %>% filter(!str_detect(name,"EA"),!str_detect(name,"M")) %>% 
+acs_groups_vars <- acs_groups_vars %>% 
+  filter(!str_detect(name,"EA"),!str_detect(name,"M")) %>% 
   mutate(label = str_replace_all(label, "Estimate!!",""),
          label = str_replace(label, "!!"," "),
          label = str_replace_all(label, "!!"," "))
@@ -142,7 +146,7 @@ for (agroup in grouplist) {
 }
 
 # List of ACS variables to be downloaded across tables
-varlist <- c("B01001_001E", "B17001_001E","B17001_002E","B03002_001E", "B03002_003E", "B03002_004E", "B03002_006E", "B03002_012E")
+varlist <- c("P001001")
 
 "B01002"
 tablename <- "demos_by_tract"
@@ -150,9 +154,9 @@ tablename <- "demos_by_tract"
 B01002
 
 # Download data for places
-yearlist <- c(2010:2019)
+yearlist <- c(2010)
 for (ayear in yearlist) {
-  census_table <- getCensus(name = "acs/acs5",
+  census_table <- getCensus(name = "dec/sf1",
                             vintage = ayear,
                             vars = c("NAME",varlist),
                             region = "tract:*", # tracts
@@ -162,7 +166,7 @@ for (ayear in yearlist) {
   census_table <- census_table %>% 
     mutate(year = ayear,
            GEOID = paste0(state,county, tract))
-  assign(paste(tablename,ayear,sep="_"),census_table)
+  assign(paste("P001001",ayear,sep="_"),census_table)
   rm(census_table)
   detach(census_table)
 }
