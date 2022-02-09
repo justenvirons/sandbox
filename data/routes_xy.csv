@@ -1,0 +1,224 @@
+Carrier,Origin_City,Origin_State,Origin,Dest_City,Dest_State,Destination,Miles,Origin_Lat,Origin_Lon,Dest_Lat,Dest_Lon
+SunTran (Tucson),Tucson,AZ,"Tucson, AZ",Ajo,AZ,"Ajo, AZ",132,32.2217429,-110.926479,32.3717249,-112.8607099
+Vermont Translines,Colchester,VT,"Colchester, VT",Albany,NY,"Albany, NY",169,44.5439375,-73.1479068,42.6525793,-73.7562317
+Placer County,Auburn,CA,"Auburn, CA",Alta,CA,"Alta, CA",24,38.8965654,-121.0768901,39.2065652,-120.8113268
+Merrimack Valley RTA,Salisbury,MA,"Salisbury, MA",Amesbury,MA,"Amesbury, MA",10,42.8417577,-70.8606083,42.8584235,-70.9300548
+Pioneer Valley RTA,Sunderland,MA,"Sunderland, MA",Amherst,MA,"Amherst, MA",11,42.244538,-71.7717372,42.3803676,-72.523143
+Pioneer Valley RTA,Sunderland,MA,"Sunderland, MA",Amherst,MA,"Amherst, MA",11,42.4667546,-72.5786996,42.3803676,-72.523143
+Pioneer Valley RTA,Hadley,MA,"Hadley, MA",Amherst,MA,"Amherst, MA",11,42.3417565,-72.5884222,42.3803676,-72.523143
+Lowell RTA,Lowell,MA,"Lowell, MA",Andover,MA,"Andover, MA",10,42.6334247,-71.3161718,42.6584254,-71.1370012
+Redwood Coast,Smith River,CA,"Smith River, CA",Arcata,CA,"Arcata, CA",90,41.9281678,-124.1470274,40.8665166,-124.0828396
+Roaring Fork Transportation Authority,Glenwood Springs,CO,"Glenwood Springs, CO",Aspen,CO,"Aspen, CO",41,39.5505376,-107.3247762,39.1910983,-106.8175387
+Montachusett RTA,Gardner,MA,"Gardner, MA",Athol,MA,"Athol, MA",19,42.5750883,-71.998133,42.5959203,-72.2267497
+Red Apple Transit,Farmington,NM,"Farmington, NM",Aztec,NM,"Aztec, NM",15,36.7280583,-108.2186856,36.8222261,-107.9928455
+Arvin Transit,Arvin,CA,"Arvin, CA",Bakersfield,CA,"Bakersfield, CA",21,35.209129,-118.828431,35.3732921,-119.0187125
+Quail Trail,Chiloquin,OR,"Chiloquin, OR",Beatty,OR,"Beatty, OR",29,42.5776364,-121.8661258,42.441815,-121.2708314
+Mason Transit,Shelton,WA,"Shelton, WA",Belfair,WA,"Belfair, WA",23,47.2150945,-123.1007066,47.4506495,-122.8273657
+Cascade East Transit,Redmond,OR,"Redmond, OR",Bend,OR,"Bend, OR",20,44.2726203,-121.1739212,44.0581728,-121.3153096
+Cascade East Transit,Sisters,OR,"Sisters, OR",Bend,OR,"Bend, OR",22,44.2909491,-121.5492118,44.0581728,-121.3153096
+Eastern Sierra Transit,Bishop,CA,"Bishop, CA",Benton,CA,"Benton, CA",35,37.3635404,-118.3951101,37.819099,-118.4765094
+Birmingham Jefferson Transit Authority,Birmingham,AL,"Birmingham, AL",Bessemer,AL,"Bessemer, AL",16,33.5206608,-86.80249,33.4017766,-86.954437
+Asheville Transit Service,Asheville,NC,"Asheville, NC",Black Mountain,NC,"Black Mountain, NC",16,35.6009452,-82.554015,35.6178951,-82.3212302
+Red Apple Transit,Farmington,NM,"Farmington, NM",Bloomfield,NM,"Bloomfield, NM",14,36.7280583,-108.2186856,36.7111165,-107.9845116
+ValleyRide (ID),Caldwell,ID,"Caldwell, ID",Boise,ID,"Boise, ID",38,43.6629384,-116.6873596,43.6135002,-116.2034505
+Marin Transit,Sausalito,CA,"Sausalito, CA",Bolinas,CA,"Bolinas, CA",21,37.8591667,-122.4852778,37.9093702,-122.6863733
+Montachusett RTA,Gardner,MA,"Gardner, MA",Boston,MA,"Boston, MA",62,42.5750883,-71.998133,42.3584308,-71.0597732
+Transfort,Fort Collins,CO,"Fort Collins, CO",Boulder,CO,"Boulder, CO",45,40.5852602,-105.084423,40.0149856,-105.2705456
+Mason Transit,Belfair,WA,"Belfair, WA",Bremerton,WA,"Bremerton, WA",13,47.4506495,-122.8273657,47.5673176,-122.6326391
+Brockton Area Transit Authority,Boston,MA,"Boston, MA",Brockton,MA,"Brockton, MA",17,42.3584308,-71.0597732,42.0834335,-71.0183787
+Brockton Area Transit Authority,Canton,MA,"Canton, MA",Brockton,MA,"Brockton, MA",10,42.1584324,-71.1447732,42.0834335,-71.0183787
+Southwest POINT,Klamath Falls,OR,"Klamath Falls, OR",Brookings,OR,"Brookings, OR",202,42.224867,-121.7816704,42.0526114,-124.2839819
+Greater Portland Metro (ME),Portland,ME,"Portland, ME",Brunswick,ME,"Brunswick, ME",29,43.661471,-70.2553259,43.9145244,-69.9653278
+Lowell RTA,Lowell,MA,"Lowell, MA",Burlington,MA,"Burlington, MA",14,42.6334247,-71.3161718,42.5048167,-71.1956111
+Capital Area Transit System,Harrisburg,PA,"Harrisburg, PA",Carlisle,PA,"Carlisle, PA",22,40.2737002,-76.8844179,40.2014771,-77.1888704
+Capital Area Transit System,Harrisburg,PA,"Harrisburg, PA",Carlisle,PA,"Carlisle, PA",22,40.0556669,-75.025171,40.2014771,-77.1888704
+RTC Washoe (NV),Reno,NV,"Reno, NV",Carson City,NV,"Carson City, NV",32,39.5296329,-119.8138027,39.1637984,-119.7674034
+Piedmont Authority for Public Transportation,Greensboro,NC,"Greensboro, NC",Chapel Hill,NC,"Chapel Hill, NC",50,36.0726355,-79.7919754,35.9428828,-82.7087517
+Piedmont Authority for Public Transportation,Greensboro,NC,"Greensboro, NC",Chapel Hill,NC,"Chapel Hill, NC",50,36.0726355,-79.7919754,35.9131996,-79.0558445
+Franklin RTA,Greenfield,MA,"Greenfield, MA",Charlemont,MA,"Charlemont, MA",18,42.5875857,-72.5995339,42.627862,-72.8698183
+Vineyard Transit Authority,West Tisbury,MA,"West Tisbury, MA",Chilmark,MA,"Chilmark, MA",10,41.3812245,-70.6744723,41.3431688,-70.7447501
+Pulaski Area Transit,Pulaski,VA,"Pulaski, VA",Christiansburg,VA,"Christiansburg, VA",26,37.0478982,-80.7797935,37.1298517,-80.4089389
+MARTA (GA),Palmetto,GA,"Palmetto, GA",College Park,GA,"College Park, GA",20,33.9059516,-82.9229218,33.6534427,-84.4493725
+MARTA (GA),Palmetto,GA,"Palmetto, GA",College Park,GA,"College Park, GA",20,33.9059516,-82.9229218,34.6414853,-83.5304489
+MARTA (GA),Palmetto,GA,"Palmetto, GA",College Park,GA,"College Park, GA",20,33.9059516,-82.9229218,31.197452,-81.4831564
+MARTA (GA),Palmetto,GA,"Palmetto, GA",College Park,GA,"College Park, GA",20,33.5178907,-84.6696548,33.6534427,-84.4493725
+MARTA (GA),Palmetto,GA,"Palmetto, GA",College Park,GA,"College Park, GA",20,33.5178907,-84.6696548,34.6414853,-83.5304489
+MARTA (GA),Palmetto,GA,"Palmetto, GA",College Park,GA,"College Park, GA",20,33.5178907,-84.6696548,31.197452,-81.4831564
+Bustang Outrider,Lamar,CO,"Lamar, CO",Colorado Springs,CO,"Colorado Springs, CO",159,38.0872307,-102.6207496,38.8338816,-104.8213634
+Envida,Calhan,CO,"Calhan, CO",Colorado Springs,CO,"Colorado Springs, CO",34,39.0355459,-104.297186,38.8338816,-104.8213634
+Rabbit Transit,York,PA,"York, PA",Columbia,PA,"Columbia, PA",12,39.9625984,-76.727745,40.0337085,-76.5044098
+The Comet,Newberry,SC,"Newberry, SC",Columbia,SC,"Columbia, SC",42,34.2745833,-81.6187179,34.0007104,-81.0348144
+The Comet,Eastover,SC,"Eastover, SC",Columbia,SC,"Columbia, SC",25,33.876821,-80.6928654,34.0007104,-81.0348144
+Emerald Coast Rider (FL),Fort Walton Beach,FL,"Fort Walton Beach, FL",Crestview,FL,"Crestview, FL",23,30.4057552,-86.618842,30.7621326,-86.5705084
+Pioneer Valley RTA,Amherst,MA,"Amherst, MA",Deerfield,MA,"Deerfield, MA",10,42.3803676,-72.523143,42.5445308,-72.6056448
+Bustang,Fort Collins,CO,"Fort Collins, CO",Denver,CO,"Denver, CO",63,40.5852602,-105.084423,39.7391536,-104.9847034
+Bustang,Colorado Springs,CO,"Colorado Springs, CO",Denver,CO,"Denver, CO",134,38.8338816,-104.8213634,39.7391536,-104.9847034
+Bustang Outrider,Gunnison,CO,"Gunnison, CO",Denver,CO,"Denver, CO",201,38.5458246,-106.9253207,39.7391536,-104.9847034
+Bustang Outrider,Craig,CO,"Craig, CO",Denver,CO,"Denver, CO",198,40.5152491,-107.5464541,39.7391536,-104.9847034
+RTD Denver,Nederland,CO,"Nederland, CO",Denver,CO,"Denver, CO",40,39.9613759,-105.5108312,39.7391536,-104.9847034
+RTD Denver,Pine Junction,CO,"Pine Junction, CO",Denver,CO,"Denver, CO",39.5,39.4661,-105.3958297,39.7391536,-104.9847034
+Delmarva Community Transit (MD),Rock Hall,MD,"Rock Hall, MD",Easton,MD,"Easton, MD",49,39.1381658,-76.2349537,38.7742826,-76.0763305
+Delmarva Community Transit (MD),Rock Hall,MD,"Rock Hall, MD",Easton,MD,"Easton, MD",49,39.2687133,-77.5260987,38.7742826,-76.0763305
+Madison County Transit (IL),Highland,IL,"Highland, IL",Edwardsville,IL,"Edwardsville, IL",16,38.7394918,-89.6712008,38.8114364,-89.953157
+Erie Metropolitan Transit Authority,Albion,PA,"Albion, PA",Erie,PA,"Erie, PA",28,40.9589529,-78.9469777,42.1292241,-80.085059
+Erie Metropolitan Transit Authority,Albion,PA,"Albion, PA",Erie,PA,"Erie, PA",28,41.8906112,-80.3664542,42.1292241,-80.085059
+Erie Metropolitan Transit Authority,Edinboro,PA,"Edinboro, PA",Erie,PA,"Erie, PA",20,41.8742225,-80.1317236,42.1292241,-80.085059
+Erie Metropolitan Transit Authority,Waterford,PA,"Waterford, PA",Erie,PA,"Erie, PA",14,40.2545173,-79.167531,42.1292241,-80.085059
+Erie Metropolitan Transit Authority,Waterford,PA,"Waterford, PA",Erie,PA,"Erie, PA",14,39.9500989,-76.6544111,42.1292241,-80.085059
+Erie Metropolitan Transit Authority,Waterford,PA,"Waterford, PA",Erie,PA,"Erie, PA",14,41.942833,-79.9844968,42.1292241,-80.085059
+Chittenden County Transportation Authority,Burlington,VT,"Burlington, VT",Essex Junction,VT,"Essex Junction, VT",10,44.4758825,-73.212072,44.4906054,-73.1109604
+Diamond Express (OR),Oakridge,OR,"Oakridge, OR",Eugene,OR,"Eugene, OR",43,43.7465124,-122.4617159,44.0520691,-123.0867536
+Lane Transit District (OR),Junction City,OR,"Junction City, OR",Eugene,OR,"Eugene, OR",17,44.2192901,-123.2056484,44.0520691,-123.0867536
+Marble Valley Regional Transit District,Middlebury,VT,"Middlebury, VT",Fair Haven,VT,"Fair Haven, VT",40,44.015337100000004,-73.16734,43.5947889,-73.2656663
+Fresno County Rural Transit Agency,Fresno,CA,"Fresno, CA",Firebaugh,CA,"Firebaugh, CA",41,36.7477272,-119.7723661,36.8588376,-120.4560072
+Citrus County Transit (FL),Lecanto,FL,"Lecanto, FL",Floral City,FL,"Floral City, FL",17,28.8516486,-82.4875982,28.7499876,-82.2967581
+Mendocino Transit Authority,Point Arena,CA,"Point Arena, CA",Fort Bragg,CA,"Fort Bragg, CA",90,38.908798,-123.6930726,39.445723,-123.8052935
+Frederick County TransIT (MD),Point of Rocks,MD,"Point of Rocks, MD",Frederick,MD,"Frederick, MD",13,39.2759354,-77.5391546,39.4142688,-77.4105409
+Fresno County Rural Transit Agency,Huron,CA,"Huron, CA",Fresno,CA,"Fresno, CA",51,36.2027308,-120.1029177,36.7477272,-119.7723661
+Valley Metro (Phoenix),Phoenix,AZ,"Phoenix, AZ",Gila Bend,AZ,"Gila Bend, AZ",69,33.4483771,-112.0740373,32.9478236,-112.7168305
+San Benito Express,Hollister,CA,"Hollister, CA",Gilroy,CA,"Gilroy, CA",16,36.8524545,-121.4016021,37.0057816,-121.5682751
+VTA,San Jose,CA,"San Jose, CA",Gilroy,CA,"Gilroy, CA",32,37.3393857,-121.8949555,37.0057816,-121.5682751
+Bustang,Grand Junction,CO,"Grand Junction, CO",Glenwood Springs,CO,"Glenwood Springs, CO",304,39.0638705,-108.5506486,39.5505376,-107.3247762
+Cape Ann RTA,Beverly,MA,"Beverly, MA",Gloucester,MA,"Gloucester, MA",19,42.5584284,-70.8800491,42.6159286,-70.6619888
+Bustang Outrider,Durango,CO,"Durango, CO",Grand Junction,CO,"Grand Junction, CO",173,37.27528,-107.8800667,39.0638705,-108.5506486
+Bustang Outrider,Telluride,CO,"Telluride, CO",Grand Junction,CO,"Grand Junction, CO",70,37.9374939,-107.8122852,39.0638705,-108.5506486
+Berkshire RTA,Pittsfield,MA,"Pittsfield, MA",Great Barrington,MA,"Great Barrington, MA",22,42.4500846,-73.2453824,42.1959225,-73.3620564
+SunTran (Tucson),Tucson,AZ,"Tucson, AZ",Green Valley,AZ,"Green Valley, AZ",32,32.2217429,-110.926479,31.8542511,-110.9937019
+Gunnison Valley RTA,Crested Butte,CO,"Crested Butte, CO",Gunnison,CO,"Gunnison, CO",27,38.8697146,-106.9878232,38.5458246,-106.9253207
+Merrimack Valley RTA,Lawrence,MA,"Lawrence, MA",Hampton,NH,"Hampton, NH",28,42.7070354,-71.1631137,42.9375899,-70.8389421
+Kings Area Rural Transit,Fresno,CA,"Fresno, CA",Hanford,CA,"Hanford, CA",32,36.7477272,-119.7723661,36.3274502,-119.6456844
+Merrimack Valley RTA,Lawrence,MA,"Lawrence, MA",Haverhill,MA,"Haverhill, MA",10,42.7070354,-71.1631137,42.7762015,-71.0772796
+Merrimack Valley RTA,Andover,MA,"Andover, MA",Haverhill,MA,"Haverhill, MA",14,42.6584254,-71.1370012,42.7762015,-71.0772796
+Lassen Rural Bus,Susanville,CA,"Susanville, CA",Herlong,CA,"Herlong, CA",37,40.4162842,-120.6530063,40.1435142,-120.1346519
+Piedmont Authority for Public Transportation,Greensboro,NC,"Greensboro, NC",High Point,NC,"High Point, NC",18,36.0726355,-79.7919754,35.9556924,-80.0053176
+Pioneer Valley RTA,Springfield,MA,"Springfield, MA",Holyoke,MA,"Holyoke, MA",11,42.1014831,-72.589811,42.2042587,-72.6162009
+Miami-Dade County Transit (FL),Miami,FL,"Miami, FL",Homestead,FL,"Homestead, FL",34,25.7742658,-80.1936589,25.4687224,-80.4775569
+Lowell RTA,Lowell,MA,"Lowell, MA",Hudson,NH,"Hudson, NH",14,42.6334247,-71.3161718,42.7648108,-71.4397876
+Tahoe Area Regional Transit,Tahoma,CA,"Tahoma, CA",Incline Village,NV,"Incline Village, NV",15,39.0674074,-120.1282439,39.2512962,-119.9729674
+Marin Transit,San Rafael,CA,"San Rafael, CA",Inverness,CA,"Inverness, CA",25,37.9736111,-122.5311111,38.1010337,-122.8569377
+Janesville Transit System,Beloit,WI,"Beloit, WI",Janesville,WI,"Janesville, WI",15,42.5083482,-89.0317765,42.6827885,-89.0187223
+Chittenden County Transportation Authority,Burlington,VT,"Burlington, VT",Jeffersonville,VT,"Jeffersonville, VT",34,44.4758825,-73.212072,44.6439391,-72.8292945
+Hartford Transit,Aberdeen,MD,"Aberdeen, MD",Joppatowne,MD,"Joppatowne, MD",12,39.5095556,-76.1641197,39.4578856,-76.3552374
+Marble Valley Regional Transit District,Rutland,VT,"Rutland, VT",Killington,VT,"Killington, VT",15,43.6106237,-72.9726065,43.6775677,-72.7798247
+Quail Trail,Chiloquin,OR,"Chiloquin, OR",Klamath Falls,OR,"Klamath Falls, OR",27,42.5776364,-121.8661258,42.224867,-121.7816704
+Quail Trail,Beatty,OR,"Beatty, OR",Klamath Falls,OR,"Klamath Falls, OR",41,42.441815,-121.2708314,42.224867,-121.7816704
+Birmingham Jefferson Transit Authority,Birmingham,AL,"Birmingham, AL",Lake Purdy,AL,"Lake Purdy, AL",12,33.5206608,-86.80249,33.4301076,-86.6805421
+Kern Transit,Bakersfield,CA,"Bakersfield, CA",Lancaster,CA,"Lancaster, CA",71,35.3732921,-119.0187125,34.6980406,-118.1367393
+Capital Area Transportation Authority (MI),Mason,MI,"Mason, MI",Lansing,MI,"Lansing, MI",12,42.5792027,-84.4435845,42.732535,-84.5555347
+Capital Area Transportation Authority (MI),Mason,MI,"Mason, MI",Lansing,MI,"Lansing, MI",12,47.1410378,-88.465676,42.732535,-84.5555347
+Merrimack Valley RTA,Boston,MA,"Boston, MA",Lawrence,MA,"Lawrence, MA",28,42.3584308,-71.0597732,42.7070354,-71.1631137
+Merrimack Valley RTA,Lowell,MA,"Lowell, MA",Lawrence,MA,"Lawrence, MA",12,42.6334247,-71.3161718,42.7070354,-71.1631137
+Merrimack Valley RTA,Haverhill,MA,"Haverhill, MA",Lawrence,MA,"Lawrence, MA",10,42.7762015,-71.0772796,42.7070354,-71.1631137
+Berkshire RTA,Pittsfield,MA,"Pittsfield, MA",Lee,MA,"Lee, MA",12,42.4500846,-73.2453824,42.3042537,-73.2481616
+Central Arkansas Transit Authority,Hensley,AR,"Hensley, AR",Little Rock,AR,"Little Rock, AR",17,34.5053723,-92.2057037,34.7464809,-92.2895948
+Central Arkansas Transit Authority,Maumelle,AR,"Maumelle, AR",Little Rock,AR,"Little Rock, AR",15,34.8667565,-92.4043219,34.7464809,-92.2895948
+Lowell RTA,Lowell,MA,"Lowell, MA",Littleton,MA,"Littleton, MA",14,42.6334247,-71.3161718,42.5375917,-71.5120096
+Pioneer Valley RTA,Holyoke,MA,"Holyoke, MA",Ludlow,MA,"Ludlow, MA",11,42.2042587,-72.6162009,42.1600936,-72.475919
+Pioneer Valley RTA,Holyoke,MA,"Holyoke, MA",Ludlow,MA,"Ludlow, MA",11,42.2042587,-72.6162009,42.2398154,-71.8481275
+Marble Valley Regional Transit District,Rutland,VT,"Rutland, VT",Ludlow,VT,"Ludlow, VT",25,43.6106237,-72.9726065,43.3959056,-72.7006518
+Modera County Connection,Chowchilla,CA,"Chowchilla, CA",Madera,CA,"Madera, CA",16,37.1229997,-120.2601754,36.9613356,-120.0607176
+Cascade East Transit,Warm Springs,OR,"Warm Springs, OR",Madras,OR,"Madras, OR",15,44.7634519,-121.2661625,44.6334544,-121.1294872
+Marble Valley Regional Transit District,Rutland,VT,"Rutland, VT",Manchester,VT,"Manchester, VT",33,43.6106237,-72.9726065,43.1636875,-73.0723269
+Marble Valley Regional Transit District,Rutland,VT,"Rutland, VT",Manchester,VT,"Manchester, VT",34,43.6106237,-72.9726065,43.1636875,-73.0723269
+Miami-Dade County Transit (FL),Homestead,FL,"Homestead, FL",Marathon,FL,"Marathon, FL",77,25.4687224,-80.4775569,24.7137524,-81.0903512
+Cape Cod RTA,Bourne,MA,"Bourne, MA",Mashpee,MA,"Mashpee, MA",20,41.7412166,-70.5989196,41.6484421,-70.4811383
+Yamhill County Transit Area,Tigard,OR,"Tigard, OR",McMinnville,OR,"McMinnville, OR",28,45.4312294,-122.7714861,45.2101162,-123.1987163
+Yamhill County Transit Area,Hillsboro,OR,"Hillsboro, OR",McMinnville,OR,"McMinnville, OR",32,45.5228939,-122.989827,45.2101162,-123.1987163
+Space Coast area transit (FL),Titusville,FL,"Titusville, FL",Melbourne,FL,"Melbourne, FL",18,28.6122187,-80.8075538,28.0836269,-80.6081089
+Merced Transit Authority,Gustine,CA,"Gustine, CA",Merced,CA,"Merced, CA",31,37.2577171,-120.9988154,37.3021633,-120.4829677
+Merced Transit Authority,Dos Palos,CA,"Dos Palos, CA",Merced,CA,"Merced, CA",32,36.9860582,-120.6265722,37.3021633,-120.4829677
+Merced Transit Authority,Winton,CA,"Winton, CA",Merced,CA,"Merced, CA",10,37.389383,-120.6132516,37.3021633,-120.4829677
+Merced Transit Authority,Planada,CA,"Planada, CA",Merced,CA,"Merced, CA",11,37.2907749,-120.3185161,37.3021633,-120.4829677
+Merrimack Valley RTA,Boston,MA,"Boston, MA",Methuen,MA,"Methuen, MA",30,42.3584308,-71.0597732,42.7262016,-71.1908924
+Chittenden County Transportation Authority,Burlington,VT,"Burlington, VT",Milton,VT,"Milton, VT",17,44.4758825,-73.212072,44.6397701,-73.1104112
+Milwaukee County Transit System,Saukville,WI,"Saukville, WI",Milwaukee,WI,"Milwaukee, WI",26,43.3816691,-87.9406454,43.0389025,-87.9064736
+Metro Transit (MN),Carver,MN,"Carver, MN",Minneapolis,MN,"Minneapolis, MN",29,44.7635738,-93.625791,44.9799654,-93.2638361
+Metro Transit (MN),Mound,MN,"Mound, MN",Minneapolis,MN,"Minneapolis, MN",24,44.9366295,-93.6660719,44.9799654,-93.2638361
+Chittenden County Transportation Authority,Burlington,VT,"Burlington, VT",Montpelier,VT,"Montpelier, VT",39,44.4758825,-73.212072,44.2600593,-72.5753869
+MetroWest RTA,Newton,MA,"Newton, MA",Natick,MA,"Natick, MA",10,42.3370414,-71.2092214,42.2834298,-71.3495032
+MetroWest RTA,Southborough,MA,"Southborough, MA",Natick,MA,"Natick, MA",12,42.3056501,-71.5245087,42.2834298,-71.3495032
+Greater Attleboro,Wareham,MA,"Wareham, MA",New Bedford,MA,"New Bedford, MA",21,41.7626037,-70.7217017,41.6362152,-70.934205
+Southeastern RTA,Fall River,MA,"Fall River, MA",New Bedford,MA,"New Bedford, MA",15,41.7014912,-71.1550451,41.6362152,-70.934205
+Lincoln County Transit (OR),Yachats,OR,"Yachats, OR",Newport,OR,"Newport, OR",24,44.3112312,-124.1048418,44.6367836,-124.0534505
+Lincoln County Transit (OR),Roads End,OR,"Roads End, OR",Newport,OR,"Newport, OR",32,45.0062185,-124.0070576,44.6367836,-124.0534505
+Valley Retriever (OR),Corvallis,OR,"Corvallis, OR",Newport,OR,"Newport, OR",39,44.5645659,-123.2620435,44.6367836,-124.0534505
+Embark (Oklahoma City bus system),Oklahoma City,OK,"Oklahoma City, OK",Norman,OK,"Norman, OK",20,35.4675602,-97.5164276,35.2225668,-97.4394777
+Berkshire RTA,Pittsfield,MA,"Pittsfield, MA",North Adams,MA,"North Adams, MA",19,42.4500846,-73.2453824,42.700915,-73.1087148
+Merrimack Valley RTA,Boston,MA,"Boston, MA",North Andover,MA,"North Andover, MA",30,42.3584308,-71.0597732,42.6987024,-71.1350575
+Curry Public Transit (OR),Brookings,OR,"Brookings, OR",North Bend,WA,"North Bend, WA",90,42.0526114,-124.2839819,47.4956579,-121.7867775
+Placer County,Auburn,CA,"Auburn, CA",North Highlands,CA,"North Highlands, CA",24,38.8965654,-121.0768901,38.6857362,-121.3721745
+Vineyard Transit Authority,Edgartown,MA,"Edgartown, MA",Oak Bluffs,MA,"Oak Bluffs, MA",11,41.3890052,-70.5133599,41.4542793,-70.5619724
+Intercity Transit,Yelm,WA,"Yelm, WA",Olympia,WA,"Olympia, WA",22,46.9420431,-122.6059582,47.0378741,-122.9006951
+Mason Transit,Shelton,WA,"Shelton, WA",Olympia,WA,"Olympia, WA",22,47.2150945,-123.1007066,47.0378741,-122.9006951
+Franklin RTA,Greenfield,MA,"Greenfield, MA",Orange,MA,"Orange, MA",19,42.5875857,-72.5995339,42.5903646,-72.3098068
+Montachusett RTA,Athol,MA,"Athol, MA",Orange,MA,"Orange, MA",10,42.5959203,-72.2267497,42.5903646,-72.3098068
+Utah Transportation Authority,Brigham City,UT,"Brigham City, UT",Orem,UT,"Orem, UT",25,41.5102129,-112.0155015,40.2968979,-111.6946475
+Cape Cod RTA,Hyannis,MA,"Hyannis, MA",Orleans,MA,"Orleans, MA",31,41.6528887,-70.2827989,41.7898313,-69.9897397
+Central New York RTA,Syracuse,NY,"Syracuse, NY",Oswego,NY,"Oswego, NY",40,43.0481221,-76.1474244,43.4553461,-76.5104973
+North County Transit District,Escondido,CA,"Escondido, CA",Pala,CA,"Pala, CA",24,33.1192068,-117.086421,33.3653102,-117.0766965
+Greater Attleboro,Kingston,MA,"Kingston, MA",Pembroke,MA,"Pembroke, MA",12,42.4153734,-71.2445006,42.0714907,-70.8092074
+Greater Attleboro,Kingston,MA,"Kingston, MA",Pembroke,MA,"Pembroke, MA",12,41.9945473,-70.7244822,42.0714907,-70.8092074
+Butler County Transportation Authority,Butler,PA,"Butler, PA",Pittsburgh,PA,"Pittsburgh, PA",42,40.8611755,-79.8953328,40.4406248,-79.9958864
+Mendocino Transit Authority,Santa Rosa,CA,"Santa Rosa, CA",Point Arena,CA,"Point Arena, CA",90,38.4404675,-122.7144314,38.908798,-123.6930726
+Rochester City Lines (MN),Bloomington,MN,"Bloomington, MN",Preston,MN,"Preston, MN",113,44.840798,-93.2982799,43.6702423,-92.0832157
+Cape Cod RTA,Harwich,MA,"Harwich, MA",Provincetown,MA,"Provincetown, MA",51,41.6862224,-70.0758508,42.058436,-70.1786375
+Bustang Outrider,Alamosa,CO,"Alamosa, CO",Pueblo,CO,"Pueblo, CO",124,37.4694491,-105.87002150000001,38.2544472,-104.609141
+Kitsap Transit,Bremerton,WA,"Bremerton, WA",Purdy,WA,"Purdy, WA",17,47.5673176,-122.6326391,47.3889853,-122.6254103
+Stagecoach Transportation (Tri Valley Transit),Randolph,VT,"Randolph, VT",Quechee,VT,"Quechee, VT",32,43.9250653,-72.6659377,43.6461811,-72.4184261
+North County Transit District,Escondido,CA,"Escondido, CA",Ramona,CA,"Ramona, CA",19,33.1192068,-117.086421,33.0417111,-116.868082
+North County Transit District,Escondido,CA,"Escondido, CA",Ramona,CA,"Ramona, CA",19,33.1192068,-117.086421,38.5474063,-121.4088418
+Piedmont Authority for Public Transportation,Asheboro,NC,"Asheboro, NC",Randleman,NC,"Randleman, NC",35,35.7079146,-79.8136446,35.8179143,-79.8030873
+Tehama Rural Area Express,Orland,CA,"Orland, CA",Red Bluff,CA,"Red Bluff, CA",32,39.7473803,-122.1963748,40.1784886,-122.2358302
+Trinity County Transportation Commission,Weaverville,CA,"Weaverville, CA",Redding,CA,"Redding, CA",44,40.7309778,-122.94197080000001,40.5865396,-122.3916754
+Cascade East Transit,Madras,OR,"Madras, OR",Redmond,OR,"Redmond, OR",26,44.6334544,-121.1294872,44.2726203,-121.1739212
+Cascade East Transit,Prineville,OR,"Prineville, OR",Redmond,OR,"Redmond, OR",20,44.2998485,-120.8344664,44.2726203,-121.1739212
+Cascade East Transit,Sisters,OR,"Sisters, OR",Redmond,OR,"Redmond, OR",20,44.2909491,-121.5492118,44.2726203,-121.1739212
+MT. Hood Express,Sandy,OR,"Sandy, OR",Rhododendron,OR,"Rhododendron, OR",19,45.3973427,-122.2614761,45.3295632,-121.9111906
+Rochester City Lines (MN),Bloomington,MN,"Bloomington, MN",Rochester,MN,"Rochester, MN",82,44.840798,-93.2982799,44.0216306,-92.4698992
+Rochester Genesee Regional Transportation Authority (NY),Lyons,NY,"Lyons, NY",Rochester,NY,"Rochester, NY",40,43.0642305,-76.9902456,43.1547845,-77.6155568
+Envida,Colorado Springs,CO,"Colorado Springs, CO",Rush,CO,"Rush, CO",40,38.8338816,-104.8213634,38.8399934,-104.0921799
+Cherriots (OR),Mill City,OR,"Mill City, OR",Salem,OR,"Salem, OR",35,44.7540106,-122.4781385,44.9428975,-123.0350963
+SunLine Transit Agency,Indio,CA,"Indio, CA",San Bernardino,CA,"San Bernardino, CA",92,33.7205771,-116.2155619,34.1083449,-117.2897652
+Santa Cruz Metro,Santa Cruz,CA,"Santa Cruz, CA",San Jose,CA,"San Jose, CA",25.5,36.9741171,-122.0307963,37.3393857,-121.8949555
+San Luis Obispo RTA,Paso Robles,CA,"Paso Robles, CA",San Luis Obispo,CA,"San Luis Obispo, CA",24,35.6266369,-120.6910043,35.2827524,-120.6596156
+Yuma County Intergovernmental Public Transportation Authority,Yuma,AZ,"Yuma, AZ",San Luis,AZ,"San Luis, AZ",32,32.7253249,-114.624397,32.3467328,-112.0409692
+Yuma County Intergovernmental Public Transportation Authority,Yuma,AZ,"Yuma, AZ",San Luis,AZ,"San Luis, AZ",32,32.7253249,-114.624397,32.0803504,-111.955128
+Yuma County Intergovernmental Public Transportation Authority,Yuma,AZ,"Yuma, AZ",San Luis,AZ,"San Luis, AZ",32,32.7253249,-114.624397,32.4869996,-114.7821796
+Golden Gate Bridge Highway & Transportation,San Francisco,CA,"San Francisco, CA",Santa Rosa,CA,"Santa Rosa, CA",54,37.775,-122.4194444,38.4404675,-122.7144314
+Verde Lynx,Cottonwood,AZ,"Cottonwood, AZ",Sedona,AZ,"Sedona, AZ",19,36.0730594,-109.8923374,34.8697395,-111.7609896
+Verde Lynx,Cottonwood,AZ,"Cottonwood, AZ",Sedona,AZ,"Sedona, AZ",19,33.0739454,-111.700687,34.8697395,-111.7609896
+Verde Lynx,Cottonwood,AZ,"Cottonwood, AZ",Sedona,AZ,"Sedona, AZ",19,34.7391876,-112.0098791,34.8697395,-111.7609896
+Lincoln County Transit (OR),Newport,OR,"Newport, OR",Siletz,OR,"Siletz, OR",13,44.6367836,-124.0534505,44.7217836,-123.920113
+Vortran (FL),Oak Hill,FL,"Oak Hill, FL",Smyrna,FL,"Smyrna, FL",13,28.8644338,-80.8544975,30.5999151,-85.677986
+Vortran (FL),Oak Hill,FL,"Oak Hill, FL",Smyrna,FL,"Smyrna, FL",13,30.2463506,-81.7512093,30.5999151,-85.677986
+Sonoma County Transit,Santa Rosa,CA,"Santa Rosa, CA",Sonoma,CA,"Sonoma, CA",40,38.4404675,-122.7144314,38.291859,-122.4580356
+Worcester RTA,Worcester,MA,"Worcester, MA",Southbridge,MA,"Southbridge, MA",25,42.2625932,-71.8022934,42.0750954,-72.0334084
+Pioneer Valley RTA,Westfield,MA,"Westfield, MA",Springfield,MA,"Springfield, MA",17,42.1250929,-72.749538,42.1014831,-72.589811
+CATABUS,Bellefonte,PA,"Bellefonte, PA",State College,PA,"State College, PA",14,40.9133943,-77.7783348,40.793395,-77.8600013
+Modesto Area Express,Modesto,CA,"Modesto, CA",Stockton,CA,"Stockton, CA",32,37.6390972,-120.9968782,37.9577016,-121.2907796
+Modesto Area Express,Modesto,CA,"Modesto, CA",Stockton,CA,"Stockton, CA",32,37.6390972,-120.9968782,32.713385,-117.123087
+Franklin RTA,Greenfield,MA,"Greenfield, MA",Sunderland,MA,"Sunderland, MA",11,42.5875857,-72.5995339,42.244538,-71.7717372
+Franklin RTA,Greenfield,MA,"Greenfield, MA",Sunderland,MA,"Sunderland, MA",11,42.5875857,-72.5995339,42.4667546,-72.5786996
+Linn-Benton Loop Bus (OR),Corvallis,OR,"Corvallis, OR",Tangent,OR,"Tangent, OR",15,44.5645659,-123.2620435,44.5412335,-123.1081498
+Port Authority of Allegheny County,Pittsburgh,PA,"Pittsburgh, PA",Tarentum,PA,"Tarentum, PA",20,40.4406248,-79.9958864,40.6014555,-79.7597709
+Greater Attleboro,Attleboro,MA,"Attleboro, MA",Taunton,MA,"Taunton, MA",13,41.9445441,-71.2856082,41.900101,-71.0897675
+San Miguel Authority for Regional Transportation,Nucla,CO,"Nucla, CO",Telluride,CO,"Telluride, CO",53.5,38.2694347,-108.5478691,37.9374939,-107.8122852
+Piedmont Authority for Public Transportation,Greensboro,NC,"Greensboro, NC",Thomasville,NC,"Thomasville, NC",23,36.0726355,-79.7919754,35.8826369,-80.0819879
+Mendocino Transit Authority,Point Arena,CA,"Point Arena, CA",Ukiah,CA,"Ukiah, CA",51,38.908798,-123.6930726,39.1501709,-123.2077831
+ECO Transit (Eagle County),Leadville,CO,"Leadville, CO",Vail,CO,"Vail, CO",44,39.2508229,-106.2925238,39.6402638,-106.3741955
+ECO Transit (Eagle County),Eagle,CO,"Eagle, CO",Vail,CO,"Vail, CO",31,39.6552635,-106.8286507,39.6402638,-106.3741955
+Sarasota County Area Transit,Sarasota,FL,"Sarasota, FL",Venice,FL,"Venice, FL",18,27.3364347,-82.5306527,27.0997775,-82.4542633
+Space Coast area transit (FL),Titusville,FL,"Titusville, FL",Viera,FL,"Viera, FL",31,28.6122187,-80.8075538,28.2469551,-80.7369994
+Hampton Roads Transit,Norfolk,VA,"Norfolk, VA",Virginia Beach,VA,"Virginia Beach, VA",19,36.8468146,-76.2852183,36.8529263,-75.977985
+Pioneer Valley RTA,Springfield,MA,"Springfield, MA",Ware,MA,"Ware, MA",27,42.1014831,-72.589811,42.2598146,-72.2398021
+Greater Attleboro,Plymouth,MA,"Plymouth, MA",Wareham,MA,"Wareham, MA",26,41.9584367,-70.6672577,41.7626037,-70.7217017
+Tri County Council,Annapolis,MD,"Annapolis, MD",Washington,DC,"Washington, DC",32,38.9784453,-76.4921829,38.8951118,-77.0363658
+Trinity County Transportation Commission,Hayfork,CA,"Hayfork, CA",Weaverville,CA,"Weaverville, CA",30,40.5543106,-123.1830839,40.7309778,-122.94197080000001
+Pioneer Valley RTA,Holyoke,MA,"Holyoke, MA",West Springfield,MA,"West Springfield, MA",12,42.2042587,-72.6162009,42.1070383,-72.6203675
+Greater Bridgeport Transit,Norwalk,CT,"Norwalk, CT",Westfield,CT,"Westfield, CT",54,41.1175966,-73.4078968,41.584821,-72.7006505
+Berkshire RTA,Pittsfield,MA,"Pittsfield, MA",Williamstown,MA,"Williamstown, MA",22,42.4500846,-73.2453824,42.7120249,-73.2037177
+Lowell RTA,Lowell,MA,"Lowell, MA",Wilmington,MA,"Wilmington, MA",11,42.6334247,-71.3161718,42.5464828,-71.1736669
+Montachusett RTA,Gardner,MA,"Gardner, MA",Winchendon,MA,"Winchendon, MA",10,42.5750883,-71.998133,42.6861973,-72.0439686
+Rochester City Lines (MN),Bloomington,MN,"Bloomington, MN",Winona,MN,"Winona, MN",114,44.840798,-93.2982799,44.049963,-91.6393152
+Cripple Creek Transportation,Cripple Creek,CO,"Cripple Creek, CO",Woodland Park,CO,"Woodland Park, CO",21,38.7466555,-105.1783149,38.9938808,-105.0569301
+Florence Yachats Connector (OR),Florence,OR,"Florence, OR",Yachats,OR,"Yachats, OR",40,43.9826214,-124.0998409,44.3112312,-124.1048418

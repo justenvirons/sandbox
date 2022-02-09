@@ -56,7 +56,8 @@ st_write(IL_Places_geom, "C:/temp/il_places.shp")
 
 rm(IL_Tracts_geom)
 
-IL_Tracts_geom_cc <- IL_Tracts_geom %>% filter(COUNTYFP=="031")
+IL_Tractscc_zctas_clipped <- st_collection_extract(cc_zctas_clipped, "POLYGON") %>%
+_geom_cc <- IL_Tracts_geom %>% filter(COUNTYFP=="031")
 
 # Filter out only Cook County census tracts
 # Intersect the place and tract geometries and create a areal weight field, AREA_pct
@@ -98,10 +99,10 @@ acs_groups_tables$year<-ayear # add year variable
 assign(paste("grouptable_","year",sep=""),acs_groups_tables) # change name of dataframe
 
 # Variables for ACS data table
-ayear <- "2010"
+ayear <- "2019"
 agroup <- "B01001"
 acs_groups_vars <- listCensusMetadata(
-  name = "dec/sf1",
+  name = "acs/acs5",
   vintage = ayear,
   group = agroup,
   type = "variables")
@@ -118,17 +119,17 @@ write_clip(groupvars_B28001_2019)
 write_csv(groupvars_B28001_2019,"C:/Users/scott/Desktop/delete/groupvars_B28001_2019.csv")
 
 # List of ACS tables to be downloaded
-grouplist <- c("B01001", "B01002","B03002")
+grouplist <- c("B01001")
 
 # Download places
-yearlist <- c(2010)
+yearlist <- c(2019)
 for (agroup in grouplist) {
   for (ayear in yearlist) {
     agroupname = paste("group(",agroup,")",sep="")
     acs_group <- getCensus(name = "acs/acs5",
                            vintage = ayear,
                            vars = c("NAME", agroupname),
-                           region = "place:*", # tracts
+                           region = "zip code tabulation area:*", # tracts
                            regionin="state:17", # places, counties, not msas
                            key="8f6a0a83c8a2466e3e018a966846c86412d0bb6e")
     attach(acs_group)
@@ -139,7 +140,7 @@ for (agroup in grouplist) {
     acs_group <- acs_group %>% select(-contains("M"))
     acs_group$year<-ayear 
     acs_group$GEOID_place<-paste0(state,place)
-    assign(paste(agroup,"place",ayear,sep="_"),acs_group)
+    assign(paste(agroup,name,ayear,sep="_"),acs_group)
     rm(acs_group)
     detach(acs_group)
   }
